@@ -1,0 +1,25 @@
+.content-title .badges {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  float: none;
+  top: auto;
+  left: auto;
+  z-index: 90;
+
+  .badge {
+    float: right;
+    position: relative;
+    top: -10px;
+    right: -10px;
+    left: auto;
+  }
+
+  .item_category {
+    float: left;
+    a {
+      float: left;
+      margin-right: 5px;
+    }
+  }
+}

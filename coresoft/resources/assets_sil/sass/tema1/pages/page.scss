@@ -1,0 +1,20 @@
+.single-page {
+    .page-container {
+        margin-top: 40px;
+        min-height: 800px;
+    }
+    .content-body {
+        width: 100%;
+        position: relative;
+        display: block;
+        color: #222;
+        padding-right: 26px;
+    }
+    .content-body__detail {
+        font-family: inherit;
+        font-size: 1.125em;
+        line-height: 1.75em;
+        font-weight: 400;
+        text-decoration: none;
+    }
+}

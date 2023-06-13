@@ -1,0 +1,213 @@
+.container:after,
+.container:before {
+    content: '';
+    display: table;
+}
+
+.buzz-container {
+    padding-top: 150px;
+}
+
+.global-container {
+    padding: 0;
+}
+
+.mode-add {
+    background: url(../../../images/bggray.png) !important;
+    background-attachment: fixed;
+
+    .add-container {
+        background-color: #fff;
+        padding-top: 0 !important;
+        -webkit-box-shadow: 0px -4px 5px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px -4px 5px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px -4px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+    .content {
+        width: 860px;
+        border-right: 1px solid #e3e3e3;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.content {
+    float: left;
+    width: 880px;
+    padding-bottom: 30px;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+.sidebar,
+.sidebar--fixed {
+    width: 300px;
+    height: auto;
+    position: relative;
+}
+
+.sidebar {
+    float: left !important;
+    display: block;
+    margin-left: 20px;
+    z-index: 0;
+}
+
+.sidebar--fixed {
+    margin-bottom: 20px !important;
+}
+
+.content-header,
+.header {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.hide-web {
+    display: none !important;
+}
+.show-web {
+    display: block !important;
+}
+
+@media (max-width: 1199px) and (min-width: 1048px) {
+    .content {
+        width: 716px !important;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 1048px) {
+    .container {
+        width: 1048px;
+    }
+}
+
+@media (max-width: 1047px) {
+    .buzz-container {
+        width: 100% !important;
+        padding-top: 64px !important;
+    }
+    .hide-mobile {
+        display: none !important;
+    }
+    .visible-mobile {
+        display: inline-block !important;
+    }
+    .container {
+        padding: 0 16px;
+    }
+    .content,
+    .content-timeline,
+    .content-timeline_right,
+    .sidebar {
+        width: 100% !important;
+        border: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .hide-phone {
+        display: none !important;
+    }
+    .visible-phone {
+        display: block !important;
+    }
+    .ads-300x250-content {
+        margin: 0 auto 16px !important;
+        float: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .visiblesidebar-onmobile {
+        .sidebar--fixed {
+            position: relative !important;
+            width: 100% !important;
+        }
+    }
+}
+
+.ads {
+    overflow: hidden;
+    display: block;
+    text-align: center;
+
+    > div {
+        text-align: center;
+        display: inline-block;
+        margin: 0 auto;
+    }
+}
+.overlay,
+body.drawer-active {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 998;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden !important;
+}
+
+.back-to-top,
+.content-spinner,
+.content-spinner_right,
+.ie7 .spinner-container,
+.ie7 .spinner-container .path,
+.ie8 .spinner-container,
+.ie8 .spinner-container .path,
+.ie9 .spinner-container,
+.ie9 .spinner-container .path,
+.overlay {
+    display: none;
+}
+
+.content-spinner,
+.content-spinner_right {
+    width: 100%;
+    -webkit-user-select: none;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    z-index: 98;
+    position: relative;
+    padding: 20px 0;
+    margin: 20px 0;
+}
+
+.spinner-container {
+    -webkit-animation: rotate 2s linear infinite;
+    animation: rotate 2s linear infinite;
+    z-index: 124;
+    position: absolute;
+    left: 50%;
+    margin-left: -22px;
+    top: 0;
+}
+
+.spinner-container .path {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+    stroke: #f44336 !important;
+    stroke-linecap: round;
+    -webkit-animation: dash 1.5s ease-in-out infinite;
+    animation: dash 1.5s ease-in-out infinite;
+}

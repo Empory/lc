@@ -1,0 +1,328 @@
+Return-Path: <lcsakarya@gmail.com>
+Delivered-To: lchaber@93-177-103-252.hostlab.net.tr
+Received: from 93-177-103-252.hostlab.net.tr
+	by 93-177-103-252.hostlab.net.tr with LMTP
+	id tCDSJJ8nh2NGBQAAZBo3iQ
+	(envelope-from <lcsakarya@gmail.com>)
+	for <lchaber@93-177-103-252.hostlab.net.tr>; Wed, 30 Nov 2022 04:51:27 -0500
+Return-path: <lcsakarya@gmail.com>
+Envelope-to: info@lchaber.com
+Delivery-date: Wed, 30 Nov 2022 04:51:27 -0500
+Received: from mail-ej1-f48.google.com ([209.85.218.48]:37507)
+	by 93-177-103-252.hostlab.net.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <lcsakarya@gmail.com>)
+	id 1p0JkU-0000Hm-9G
+	for info@lchaber.com;
+	Wed, 30 Nov 2022 04:51:27 -0500
+Received: by mail-ej1-f48.google.com with SMTP id ud5so39991746ejc.4
+        for <info@lchaber.com>; Wed, 30 Nov 2022 01:51:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:to:from:subject:date:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=NmThjwxYYpi/DaWmmkO58ineGWKPbbO4vKwAY+UG0v8=;
+        b=Og38+NAeV6mXxbfBnhCXhXQv6ZT3AWx79q/Gwf4f3dHM6f1yLlUJLrHib3wTI21uW9
+         tau7S9JZxEKfeEIbnNpkdWlvxXMrHr6sZ1MfUyBFmxlbiYrOrfk5jYoQO7HEGK5Vc8MA
+         CRYiTNQvh+NTGttwfHiQ9+9wKUoTqXSjaSyeesM+QoTcdD1pANYunWbRQ/yWhwdlGRsC
+         L6h65AWJAQc/FB0nBTRIMkPIQOnGe75TsYu9Bau1n3/zFF/AcpKV+de/kFvp8COdPimY
+         W+FauGoeg+oV6j2wvefr5YPIhobFJW1gKPWcTUWtkO92DBvb/ReVrbsEDPNBWdwGNlA3
+         +/eg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=mime-version:to:from:subject:date:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=NmThjwxYYpi/DaWmmkO58ineGWKPbbO4vKwAY+UG0v8=;
+        b=KmFN8Ow1E8hXkCNURAkK3lkcQq95PuF2DOH8zTQkUFrZbOm4MFLkh3a2vF0t0uub+r
+         2Z38fMDHz4AXNkh66NZS1nja7z1omwIbrKjNXJLiSPkwCQQ1Y8WmPs9V5/euaIHKx20y
+         3rY6r4MqstejGRJ0D1pEeLWPPZ81wPw/R8BFQPlrgx7EfthaAJVq9bodLxz6HeB68LFG
+         gIw/GjYCaqdS9eY6SwIf2P5P10vR4A+zxMtxoHSr7u3/+WbFCqjUwsrzBmYGmfIyOzfa
+         NJc7bpq4THGFQq6upLTeqH3xL/L2vhPlmnP8OBhw+763WAa3BfV6BdbD1KR+sS/jSL5L
+         FC5g==
+X-Gm-Message-State: ANoB5pmBU3/JYpEib+PokXJdm8QciW0WQeDyvE67D701kOMWmDsBMwx6
+	Anjfmo9hmJWzhWeOQdu7tBIcf1+y4rU=
+X-Google-Smtp-Source: AA0mqf7k9irnzr5weKtGw4k1j9Ue15knCC0HsMIeq3/OehZYXTkgP5mv/zExHbgd1cyyEFJ7HXgU2Q==
+X-Received: by 2002:a17:907:b60f:b0:787:8884:78df with SMTP id vl15-20020a170907b60f00b00787888478dfmr35316473ejc.246.1669801841565;
+        Wed, 30 Nov 2022 01:50:41 -0800 (PST)
+Received: from lchaber.com ([46.31.79.126])
+        by smtp.gmail.com with ESMTPSA id 10-20020a170906310a00b0078ba492db81sm457114ejx.9.2022.11.30.01.50.40
+        for <info@lchaber.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 30 Nov 2022 01:50:41 -0800 (PST)
+Message-ID: <32abefcc97d55327548bed21492757f8@lchaber.com>
+Date: Wed, 30 Nov 2022 12:50:40 +0300
+Subject: Milyarder zenginler eylem =?utf-8?Q?yapt=C4=B1=3A?= Bizden daha
+ =?utf-8?Q?=C3=A7ok?= vergi =?utf-8?Q?al=C4=B1n_i=C3=A7in?= yorumunuz
+ =?utf-8?Q?onaylanmam=C4=B1=C5=9F?=
+ =?utf-8?Q?t=C4=B1r!?=
+From: LC Haber <lcsakarya@gmail.com>
+To: info@lchaber.com
+MIME-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="_=_swift_1669801840_3678a1386ddec80e19ab3b94fc6db1c4_=_"
+X-Spam-Status: No, score=-0.2
+X-Spam-Score: -1
+X-Spam-Bar: /
+X-Ham-Report: Spam detection software, running on the system "93-177-103-252.hostlab.net.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  [LC Haber](https://lchaber.com) Merhaba lchaber, kötü bir
+    haberimiz var! Your comment for Milyarder zenginler eylem yaptı: Bizden
+   daha çok vergi alın has been deleted! 
+ Content analysis details:   (-0.2 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: lchaber.com]
+  0.0 FREEMAIL_FROM          Sender email is commonly abused enduser mail
+                             provider
+                             [lcsakarya[at]gmail.com]
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+X-Spam-Flag: NO
+
+
+--_=_swift_1669801840_3678a1386ddec80e19ab3b94fc6db1c4_=_
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+[LC Haber](https://lchaber.com)
+
+Merhaba lchaber, k=C3=B6t=C3=BC bir ha=
+berimiz var!
+
+Your comment for Milyarder zenginler eylem yapt=C4=B1: Bi=
+zden daha =C3=A7ok vergi al=C4=B1n has been deleted!
+
+test
+
+En iyi =
+dileklerle,
+LC Haber
+
+=C2=A9 2022 LC Haber. T=C3=BCm haklar=C4=B1 sak=
+l=C4=B1d=C4=B1r.
+
+
+--_=_swift_1669801840_3678a1386ddec80e19ab3b94fc6db1c4_=_
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.=
+w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.=
+w3.org/1999/xhtml">
+<head>
+<meta name=3D"viewport" content=3D"width=3Dd=
+evice-width, initial-scale=3D1.0">
+<meta http-equiv=3D"Content-Type" cont=
+ent=3D"text/html; charset=3DUTF-8">
+<meta name=3D"color-scheme" content=
+=3D"light">
+<meta name=3D"supported-color-schemes" content=3D"light">
+<=
+style>
+@media  only screen and (max-width: 600px) {
+.inner-body {
+wid=
+th: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}=
+
+
+@media  only screen and (max-width: 500px) {
+.button {
+width: 100=
+% !important;
+}
+}
+</style>
+</head>
+<body style=3D"box-sizing: bor=
+der-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto=
+, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Seg=
+oe UI Symbol'; position: relative; -webkit-text-size-adjust: none; backgrou=
+nd-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: =
+0; padding: 0; width: 100% !important;">
+
+<table class=3D"wrapper" widt=
+h=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"presentation" style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpaddin=
+g: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: =
+#edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align=3D"center=
+" style=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSyst=
+emFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoj=
+i', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table cla=
+ss=3D"content" width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"p=
+resentation" style=3D"box-sizing: border-box; font-family: -apple-system, B=
+linkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple=
+ Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -pr=
+emailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; =
+margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class=3D"header" style=
+=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont,=
+ 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Se=
+goe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text=
+-align: center;">
+<a href=3D"https://lchaber.com" style=3D"box-sizing: bo=
+rder-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Robot=
+o, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Se=
+goe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-w=
+eight: bold; text-decoration: none;">
+Lc Haber
+</a>
+</td>
+</tr>
+=
+
+<!-- Email Body -->
+<tr>
+<td class=3D"body" width=3D"100%" cellpaddi=
+ng=3D"0" cellspacing=3D"0" style=3D"box-sizing: border-box; font-family: -a=
+pple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans=
+-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position:=
+ relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer=
+-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; =
+border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tab=
+le class=3D"inner-body" align=3D"center" width=3D"570" cellpadding=3D"0" ce=
+llspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, =
+Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'=
+; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0;=
+ -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef;=
+ border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150,=
+ 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; widt=
+h: 570px;">
+<!-- Body content -->
+<tr>
+<td class=3D"content-cell" sty=
+le=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFon=
+t, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', '=
+Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; p=
+adding: 32px;">
+<p style=3D"box-sizing: border-box; font-family: -apple-s=
+ystem, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif=
+, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relat=
+ive; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;"=
+>Merhaba lchaber, k=C3=B6t=C3=BC bir haberimiz var!
+<br>
+Your comment f=
+or <b style=3D"box-sizing: border-box; font-family: -apple-system, BlinkMac=
+SystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color =
+Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">Milyarder=
+ zenginler eylem yapt=C4=B1: Bizden daha =C3=A7ok vergi al=C4=B1n</b> has b=
+een deleted!</p>
+<table class=3D"panel" width=3D"100%" cellpadding=3D"0" =
+cellspacing=3D"0" role=3D"presentation" style=3D"box-sizing: border-box; fo=
+nt-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica=
+, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbo=
+l'; position: relative; border-left: #2d3748 solid 4px; margin: 21px 0;">=
+
+<tr>
+<td class=3D"panel-content" style=3D"box-sizing: border-box; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, =
+Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'=
+; position: relative; background-color: #edf2f7; color: #718096; padding: 1=
+6px;">
+<table width=3D"100%" cellpadding=3D"0" cellspacing=3D"0" role=3D"=
+presentation" style=3D"box-sizing: border-box; font-family: -apple-system, =
+BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Appl=
+e Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">=
+
+<tr>
+<td class=3D"panel-item" style=3D"box-sizing: border-box; font-fa=
+mily: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Ari=
+al, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; p=
+osition: relative; padding: 0;">
+<p style=3D"box-sizing: border-box; font=
+-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, =
+Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'=
+; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; t=
+ext-align: left; color: #718096; margin-bottom: 0; padding-bottom: 0;">test=
+</p>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style=3D"bo=
+x-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Sego=
+e UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI=
+ Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-heigh=
+t: 1.5em; margin-top: 0; text-align: left;">En iyi dileklerle,<br>
+LC Hab=
+er</p>
+
+
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td =
+style=3D"box-sizing: border-box; font-family: -apple-system, BlinkMacSystem=
+Font, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji'=
+, 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class=
+=3D"footer" align=3D"center" width=3D"570" cellpadding=3D"0" cellspacing=3D=
+"0" role=3D"presentation" style=3D"box-sizing: border-box; font-family: -ap=
+ple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-=
+serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: =
+relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-=
+width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;=
+">
+<tr>
+<td class=3D"content-cell" align=3D"center" style=3D"box-sizing=
+: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', R=
+oboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',=
+ 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">=
+
+<p style=3D"box-sizing: border-box; font-family: -apple-system, BlinkMac=
+SystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color =
+Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-heigh=
+t: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: cente=
+r;">=C2=A9 2022 LC Haber. T=C3=BCm haklar=C4=B1 sakl=C4=B1d=C4=B1r.</p>
+=
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</=
+table>
+</body>
+</html>
+
+--_=_swift_1669801840_3678a1386ddec80e19ab3b94fc6db1c4_=_--
+

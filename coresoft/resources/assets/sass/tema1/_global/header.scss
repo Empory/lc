@@ -1,0 +1,107 @@
+.header {
+  position: relative !important;
+  height: auto !important;
+  max-height: 100%;
+}
+
+.header__searchbar {
+  height: 95px;
+}
+
+.header__appbar {
+  height: auto;
+  padding: 15px 0;
+}
+
+.header__appbar.is-passive {
+  margin-top: -60px;
+}
+
+.header__appbar--left__logo {
+  width: 152px;
+  height: 48px;
+}
+
+.header__appbar--left__logo img {
+  max-width: 152px;
+}
+
+.header__appbar--left__logo a {
+  width: 142px;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.header__appbar--left__menu {
+  width: auto;
+  height: 58px;
+  display: block;
+}
+
+.header__searchbar {
+  height: auto;
+  margin-top: -95px;
+}
+
+.header__searchbar__container__input {
+  height: 70px;
+}
+
+.header__appbar.header__appbar_menu {
+  padding: 0;
+  border-top: 0;
+  background: #177ebc;
+}
+
+.header__appbar--left__menu__list__item>a {
+  height: 58px;
+}
+
+.header__appbar--left__menu__list__item>a,
+.header__appbar--left__menu__list__item>a:hover,
+.header__appbar--left__menu__list__item>a:focus {
+  color: #fff;
+}
+
+.header__appbar_top_color .container {
+  display: flex;
+  align-items: center;
+
+  .header__appbar--right {
+        margin-left: auto;
+        justify-content: space-between;
+        width: 100%;
+        padding-left: 142px;
+    }
+}
+
+@media (max-width: 1047px) {
+  .header__appbar {
+    padding: 0;
+  }
+
+  .header__appbar--left__nav {
+    margin: 18px 10px 18px 0;
+  }
+
+  .header__appbar--left__logo {
+    width: 102px;
+    height: 58px;
+  }
+
+  .header__appbar--left__logo img {
+    max-width: 102px;
+  }
+
+  .header__searchbar__container__input {
+    height: 40px;
+  }
+  .header__appbar.header__appbar_menu {
+    float: right;
+    position: absolute;
+    top: 2px;
+    right: 0;
+    width: auto;
+    background: transparent!important
+  }
+}

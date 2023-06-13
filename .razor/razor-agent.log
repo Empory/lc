@@ -1,0 +1,6 @@
+Apr 04 06:27:45.929900 check[20114]: [ 2] [bootup] Logging initiated LogDebugLevel=3 to file:/home/lchaber/.razor/razor-agent.log
+Apr 04 06:27:48.285706 check[20114]: [ 3] mail 1 is not known spam.
+Apr 04 06:28:47.677962 check[20114]: [ 2] [bootup] Logging initiated LogDebugLevel=3 to file:/home/lchaber/.razor/razor-agent.log
+Apr 04 06:28:48.315702 check[20114]: [ 3] mail 1 is not known spam.
+Apr 04 06:35:07.756358 check[20115]: [ 2] [bootup] Logging initiated LogDebugLevel=3 to file:/home/lchaber/.razor/razor-agent.log
+Apr 04 06:35:08.390544 check[20115]: [ 3] mail 1 is not known spam.

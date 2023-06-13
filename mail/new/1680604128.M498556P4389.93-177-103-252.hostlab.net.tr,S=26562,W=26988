@@ -1,0 +1,426 @@
+Return-Path: <3tPsrZA0KBYMjsv1k-uvylws5nvvnsl.jvtohilysjohily.jvt@scoutcamp.bounces.google.com>
+Delivered-To: lchaber@93-177-103-252.hostlab.net.tr
+Received: from 93-177-103-252.hostlab.net.tr
+	by 93-177-103-252.hostlab.net.tr with LMTP
+	id 6JddHeD7K2QlEQAAZBo3iQ
+	(envelope-from <3tPsrZA0KBYMjsv1k-uvylws5nvvnsl.jvtohilysjohily.jvt@scoutcamp.bounces.google.com>)
+	for <lchaber@93-177-103-252.hostlab.net.tr>; Tue, 04 Apr 2023 06:28:48 -0400
+Return-path: <3tPsrZA0KBYMjsv1k-uvylws5nvvnsl.jvtohilysjohily.jvt@scoutcamp.bounces.google.com>
+Envelope-to: haber@lchaber.com
+Delivery-date: Tue, 04 Apr 2023 06:28:48 -0400
+Received: from mail-yw1-f198.google.com ([209.85.128.198]:46759)
+	by 93-177-103-252.hostlab.net.tr with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.95)
+	(envelope-from <3tPsrZA0KBYMjsv1k-uvylws5nvvnsl.jvtohilysjohily.jvt@scoutcamp.bounces.google.com>)
+	id 1pjduD-00019L-EL
+	for haber@lchaber.com;
+	Tue, 04 Apr 2023 06:28:48 -0400
+Received: by mail-yw1-f198.google.com with SMTP id 00721157ae682-5458dde029bso321691827b3.13
+        for <haber@lchaber.com>; Tue, 04 Apr 2023 03:28:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20210112; t=1680604084;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nJ/5mf96J3JYAxx0D5+e1Lf2nQER6Fw+3rADVnT/agU=;
+        b=TlyPwdPectOEz9X3SfFCg45aZoU1+CL4GbMXMCy/surt1s9ex4miGasm8Lz8KNg4Um
+         dSjwgKUTOzEOdBYEP+2MrQC6fvfcc2nBjAhvNKEzfgYox05X+vfv3REyygk5PpFrT+2Y
+         JtqooPvN+ezf9k/5Upx/ex9li9pQu3qN2Zk/LI8mHbuZSj9YotnYR6Fl8ErXXop4H4G5
+         iMd0MH7KgmJ3cEcs1124iBs3QP2Dw5T5+fjXg8aY3cw1jdCkKxiFIioa6ICNq3uEkVo8
+         yG8xWUrv4wVMhzlZkGYjtNih4CueiX3Srbu+2HSMdVNuoRnXkPneHvFb6jFOZ4qIMgS2
+         LvIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112; t=1680604084;
+        h=to:from:subject:message-id:feedback-id:reply-to:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nJ/5mf96J3JYAxx0D5+e1Lf2nQER6Fw+3rADVnT/agU=;
+        b=rpU93ap2esiQogSHfbzjkDVN0UZCa97SxCf7snHdpxdC+6nJ5FgCwVMSUf0Mi0L1Sw
+         hbfcEnNUYY5ENa0qnITFCEQB0CktOTIRBbQr6DJTVbm4AsP2M7/M8hDVh+yCFpwJizzN
+         bVLI+bI98dJiZbg71i+QkzbNIT43TR4GMhwMwlQ57OmY9b0+wXnzirUWGzCkTt7LU4DC
+         GrW6eIf+i247vQwwib393AHuP69GoxXwEv9VVjqil3vvKZNrGf5A+4cBh2IJBeQUtSkt
+         1YAOjmbMqeYFMn+thrJBy9eVqI7V74zHIAExgJxHO7TTsQJGX8ZZwoIqRNsKjhBrpMxr
+         P6DQ==
+X-Gm-Message-State: AAQBX9fyKbl9v11gNXPezCo96QMeqhhtirdZwCShLeOYMzK7MpMTI1Es
+	n78ZVC0eCHVOVQM=
+X-Google-Smtp-Source: AKy350aXWIrOTAnOftZ+jac1rRS9RAiBQmGya5ewZA/JqDXyTh+WavikqUDWg8mfT2VBh605A+2rRpI=
+MIME-Version: 1.0
+X-Received: by 2002:a81:441e:0:b0:540:62be:42b with SMTP id
+ r30-20020a81441e000000b0054062be042bmr1231114ywa.6.1680604084645; Tue, 04 Apr
+ 2023 03:28:04 -0700 (PDT)
+Date: Tue, 04 Apr 2023 03:28:04 -0700
+Reply-To: The Google Cloud Team <cloud-noreply@google.com>
+X-Google-Id: 4198012
+Feedback-ID: P-10-0:C20226036:M110590031-tr:gamma
+X-Notifications: GAMMA:<dd00197f52737f6fb83d7903e2f9c73292b1762f-20226036-111192358@google.com>
+X-Notifications-Bounce-Info: AV0SK3UOyc1tE_Kl2PwUMfyRTwzNkPFyZBQsjuBVb9vAG_mKXy0GWXBh0SK7TFjqqgt4Zr-EoNhzcAbiNgmidEH9ovzxSqZ85BED_J4xT-Zao0rYk_5TeS0f87_xwx_-ownjbusOhAz7ReSD0Hi2xULZ5EJAIrfjKkMxW9dtq9JFmHwZnqcVM_jQqoX-MrxlTJSC_VeyAyYgx-udBTuA8YFT4jRzPyp8leC0igOd04hoGndykPE3cuLEH2MPuv5xJGsZbyIxL5D-1O8HLoei8IxZmFJEES6ePwqkb1Xr1NAlltHkndaMfw9TAybw7DsKLf2F86DI5g_SX_9L2XdF8v76y43mjXgVQD30wQ6CojNCNb056q55LZIgrvhXBFEFmZEmvyxHwwavBdvpUMdSelLKs6XrC-chgMcaBAix-7D9-_JqSF_FtoW0iq-9salRETB9mBziTANjAwNjA0MDQxNTM1NTk2OTMzMg
+Message-ID: <dd00197f52737f6fb83d7903e2f9c73292b1762f-20226036-111192358@google.com>
+Subject: =?UTF-8?B?QnUgZW4gaXlpIHV5Z3VsYW1hbGFybGEgR29vZ2xlIFnDtm5ldGljaSBoZXNhYsSxbsSxeg==?=
+	=?UTF-8?B?xLFuIGfDvHZlbmxpxJ9pbmkgc2HEn2xhecSxbg==?=
+From: The Google Cloud Team <cloud-noreply@google.com>
+To: haber@lchaber.com
+Content-Type: multipart/alternative; boundary="0000000000007931c005f88021d7"
+X-Spam-Status: No, score=-5.5
+X-Spam-Score: -54
+X-Spam-Bar: -----
+X-Ham-Report: Spam detection software, running on the system "93-177-103-252.hostlab.net.tr",
+ has NOT identified this incoming email as spam.  The original
+ message has been attached to this so you can view it or label
+ similar future email.  If you have any questions, see
+ root\@localhost for details.
+ Content preview:  From: "The Google Cloud Team" <cloud-noreply@google.com> Subject:
+    Bu en iyi uygulamalarla Google Yönetici hesabınızın güvenliğini sağlayın
+    Google hesabınızın güvenliğini sağlamaya yönelik ipuçları 
+ Content analysis details:   (-5.5 points, 5.0 required)
+  pts rule name              description
+ ---- ---------------------- --------------------------------------------------
+  0.0 URIBL_BLOCKED          ADMINISTRATOR NOTICE: The query to URIBL was
+                             blocked.  See
+                             http://wiki.apache.org/spamassassin/DnsBlocklists#dnsbl-block
+                              for more information.
+                             [URIs: storage.googleapis.com]
+ -7.5 USER_IN_DEF_DKIM_WL    From: address is in the default DKIM
+                             welcome-list
+ -0.0 SPF_PASS               SPF: sender matches SPF record
+  2.2 KAM_STORAGE_GOOGLE     URI: Google Storage API being abused by
+                             spammers
+  0.0 HTML_MESSAGE           BODY: HTML included in message
+  0.1 DKIM_SIGNED            Message has a DKIM or DK signature, not necessarily
+                             valid
+ -0.1 DKIM_VALID_EF          Message has a valid DKIM or DK signature from
+                             envelope-from domain
+ -0.1 DKIM_VALID             Message has at least one valid DKIM or DK signature
+ -0.1 DKIM_VALID_AU          Message has a valid DKIM or DK signature from
+                             author's domain
+ -0.0 DKIMWL_WL_MED          DKIMwl.org - Medium trust sender
+X-Spam-Flag: NO
+
+--0000000000007931c005f88021d7
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Content-Transfer-Encoding: base64
+
+RnJvbTogIlRoZSBHb29nbGUgQ2xvdWQgVGVhbSIgPGNsb3VkLW5vcmVwbHlAZ29vZ2xlLmNvbT4N
+ClN1YmplY3Q6ICBCdSBlbiBpeWkgdXlndWxhbWFsYXJsYSBHb29nbGUgWcO2bmV0aWNpIGhlc2Fi
+xLFuxLF6xLFuIGfDvHZlbmxpxJ9pbmkgIA0Kc2HEn2xhecSxbg0KDQoNCg0KR29vZ2xlIGhlc2Fi
+xLFuxLF6xLFuIGfDvHZlbmxpxJ9pbmkgc2HEn2xhbWF5YSB5w7ZuZWxpayBpcHXDp2xhcsSxDQoN
+CiMjIEJ1IGVuIGl5aSB1eWd1bGFtYWxhcmxhIEdvb2dsZSBZw7ZuZXRpY2kgS29uc29sdSBoZXNh
+YsSxbsSxesSxbiBnw7x2ZW5sacSfaW5pICANCnNhxJ9sYXnEsW4NCg0KRGXEn2VybGkgTcO8xZ90
+ZXJpbWl6LA0KDQpHb29nbGUgWcO2bmV0aWNpIEtvbnNvbHUgaGVzYWLEsW7EsXrEsW4gZ8O8dmVu
+bGnEn2luaSBzYcSfbGFtYWsgacOnaW4gw7ZuZXJkacSfaW1peiAgDQpiaXJrYcOnIGVyacWfaW0g
+ZGVuZXRpbWkgdmUgZ8O8dmVubGlrIMO2emVsbGnEn2kgYcWfYcSfxLFkYSB2ZXJpbG1pxZ90aXI6
+DQoNCg0KKipZw7ZuZXRpY2lsZXJpbiB2ZSDDtm5lbWxpIGt1bGxhbsSxY8SxbGFyxLFuLCBraW0g
+b2xkdWtsYXLEsW5hIGRhaXIgZWsga2FuxLF0ICANCnN1bm1hc8SxbsSxIHpvcnVubHUga8SxbMSx
+bioqDQoNCsSwxZ9sZXRtZW5pemRla2kgaGVya2VzaW4gMiBBZMSxbWzEsSBEb8SfcnVsYW1hIGt1
+bGxhbm1hc8SxIMO2bmVyaXJpei4gQnUsICANCsO2emVsbGlrbGUgecO2bmV0aWNpbGVyIHZlIGZp
+bmFuc2FsIGthecSxdGxhciBpbGUgw6dhbMSxxZ9hbiBiaWxnaWxlcmkgZ2liaSAgDQpoYXNzYXMg
+dmVyaWxlcmxlIMOnYWzEscWfYW4ga3VsbGFuxLFjxLFsYXIgacOnaW4gw7ZuZW1saWRpci4gQmly
+IMWfaWZyZSAgDQrDp2FsxLFuZMSxxJ/EsW5kYSAyIEFkxLFtbMSxIERvxJ9ydWxhbWEsIMWfaWZy
+ZXlpIMOnYWxhbiBracWfaW5pbiBoZXNhYsSxbsSxemEgIA0KZXJpxZ9tZXNpbmkgZW5nZWxsZXll
+YmlsaXIuDQoNCjIgQWTEsW1sxLEgRG/En3J1bGFtYSBpbGUga3VsbGFuxLFjxLFsYXLEsW4sIGJp
+bGRpa2xlcmkgKMWfaWZyZWxlcmkpIHZlIHNhaGlwICANCm9sZHVrbGFyxLEgYmlyIMWfZXlpIChm
+aXppa3NlbCBhbmFodGFyIHZleWEgZXJpxZ9pbSBrb2R1IGdpYmkpIGt1bGxhbmFyYWsgIA0Ka2lt
+bGlrbGVyaW5pIGRvxJ9ydWxhbWFzxLEgZ2VyZWtpci4gTcO8bWvDvG4gb2xhbiBkdXJ1bWxhcmRh
+LCBGSURPIHV5dW1sdSBiaXIgIA0KZ8O8dmVubGlrIGFuYWh0YXLEsXlsYSB5w7ZuZXRpY2lsZXIg
+dmUgw7ZuZW1saSBrdWxsYW7EsWPEsWxhciBpw6dpbiAyIEFkxLFtbMSxICANCkRvxJ9ydWxhbWEn
+ecSxIHpvcnVubHUga8SxbG1hbsSxeiBnZXJla2lyLg0KDQoNCjIgQWTEsW1sxLEgRG/En3J1bGFt
+YSBpbGUgacWfbGV0bWVuaXppIGtvcnVtYSAgDQooaHR0cHM6Ly9zdXBwb3J0Lmdvb2dsZS5jb20v
+YS9hbnN3ZXIvMTc1MTk3KSB8IDIgQWTEsW1sxLEgRG/En3J1bGFtYSd5xLEgIA0KZGHEn8SxdG1h
+ICANCihodHRwczovL3N1cHBvcnQuZ29vZ2xlLmNvbS9hL2Fuc3dlci85MTc2NjU3P2hsPXRyJnJl
+Zl90b3BpYz0yNzU5MTkzKQ0KDQoqKkVrIGJpciBzw7xwZXIgecO2bmV0aWNpIGhlc2FixLEgb2x1
+xZ90dXJ1bioqDQoNCkJpciBpxZ9sZXRtZSwgaGVyIGJpcmkgZmFya2zEsSBiaXIga2nFn2kgdGFy
+YWbEsW5kYW4gecO2bmV0aWxlbiBiaXJkZW4gw6dvayBzw7xwZXIgIA0KecO2bmV0aWNpIGhlc2Fi
+xLFuYSBzYWhpcCBvbG1hbMSxZMSxci4gQmlyaW5jaWwgc8O8cGVyIHnDtm5ldGljaSBoZXNhYsSx
+bsSxeiAgDQprYXlib2x1ciB2ZXlhIGVsZSBnZcOnaXJpbGlyc2UsIGJpcmluY2lsIGhlc2FwIGt1
+cnRhcsSxbMSxcmtlbiB5ZWRlayBzw7xwZXIgIA0KecO2bmV0aWNpIGtyaXRpayBnw7ZyZXZsZXJp
+IGdlcsOnZWtsZcWfdGlyZWJpbGlyLiBGYXJrbMSxIGJpciBrdWxsYW7EsWPEsXlhIHPDvHBlciAg
+DQp5w7ZuZXRpY2kgcm9sw7wgYXRheWFyYWsgYmHFn2thIGJpciBzw7xwZXIgecO2bmV0aWNpIG9s
+dcWfdHVyYWJpbGlyc2luaXouDQoNCkt1bGxhbsSxY8SxeWEgecO2bmV0aWNpIHJvbGxlcmkgYXRh
+bWEgIA0KKGh0dHBzOi8vc3VwcG9ydC5nb29nbGUuY29tL2EvYW5zd2VyLzE3MjE3NikNCg0KKipT
+w7xwZXIgecO2bmV0aWNpbGVyIGhlc2FwbGFyxLFuZGEgb3R1cnVtbGFyxLFuxLEgYcOnxLFrIHR1
+dG1hbWFsxLFkxLFyKioNCg0KU8O8cGVyIHnDtm5ldGljaWxlciwgeWFsbsSxemNhIGJlbGlybGkg
+Z8O2cmV2bGVyaSBnZXLDp2VrbGXFn3Rpcm1layBpw6dpbiBvdHVydW0gIA0KYcOnbWFsxLEgdmUg
+c29ucmEgb3R1cnVtbGFyxLFuxLEga2FwYXRtYWzEsWTEsXIuIEJlbGlybGkgYmlyIHnDtm5ldGlt
+IGfDtnJldmluaSAgDQpnZXLDp2VrbGXFn3Rpcm1lZGnEn2luaXogaGFsZGUgc8O8cGVyIHnDtm5l
+dGljaSBoZXNhYsSxbsSxbiBvdHVydW11bnUgYcOnxLFrICANCmLEsXJha8SxcnNhbsSxeiBrw7Z0
+w7wgYW1hw6dsxLEgacWfbGVtbGVyZSBtYXJ1eiBrYWxtYSByaXNraW5pIGFydMSxcsSxeW9yICAN
+Cm9sYWJpbGlyc2luaXouDQoNCkfDvG5sw7xrIHnDtm5ldGltIGfDtnJldmxlcmksIHPEsW7EsXJs
+xLEgecO2bmV0aWNpIHJvbGxlcmluZSBzYWhpcCBiaXIgaGVzYXAgIA0Ka3VsbGFuxLFsYXJhayB5
+YXDEsWxtYWzEsWTEsXIuDQoNCsOWbmNlZGVuIG9sdcWfdHVydWxtdcWfIHnDtm5ldGljaSByb2xs
+ZXJpICANCihodHRwczovL3N1cHBvcnQuZ29vZ2xlLmNvbS9hL2Fuc3dlci8yNDA1OTg2KSB8IFnD
+tm5ldGljaSBoZXNhcGxhcsSxIGnDp2luICANCmfDvHZlbmxpayBrb251c3VuZGEgZW4gaXlpIHV5
+Z3VsYW1hbGFyICANCihodHRwczovL3N1cHBvcnQuZ29vZ2xlLmNvbS9hL2Fuc3dlci85MDExMzcz
+KQ0KDQpHb29nbGUgaGVzYWLEsW7EsXpkYSBrdWxsYW5hYmlsZWNlxJ9pbml6IGVuIGl5aSBnw7x2
+ZW5saWsgdXlndWxhbWFsYXLEsSBoYWtrxLFuZGEgIA0KZGFoYSBmYXpsYSBiaWxnaSBlZGlubWVr
+IGnDp2luIGfDvHZlbmxpa2xlIGlsZ2lsaSB5YXDEsWxhY2FrbGFyIGxpc3RlbGVyaW1pemkgIA0K
+KGh0dHBzOi8vc3VwcG9ydC5nb29nbGUuY29tL2EvYW5zd2VyLzkxODQyMjYpIGluY2VsZXlpbi4N
+Cg0KU2F5Z8SxbGFyxLFtxLF6bGEsDQoNCkdvb2dsZSBFa2liaQ0KDQoNCihDKSAyMDIzICBHb29n
+bGUgTExDwqAxNjAwIEFtcGhpdGhlYXRyZSBQYXJrd2F5LCBNb3VudGFpbiBWaWV3LCBDQSA5NDA0
+MyAqICAgDQpHb29nbGUgQXNpYSBQYWNpZmljIFB0ZS4gTHRkLiwgOCBNYXJpbmEgVmlldywgIzMw
+LTAxLCBBc2lhIFNxdWFyZSAxLCAgDQpTaW5nYXB1ciAwMTg5NjAgICogIEdvb2dsZSBDbG91ZCBF
+TUVBIEx0ZC4sIDcwIFNpciBKb2huIFJvZ2Vyc29uJ3MgUXVheSwgIA0KRHVibGluIDIsIMSwcmxh
+bmRhLg0KDQpCdSB6b3J1bmx1IGUtcG9zdGEgaGl6bWV0IGR1eXVydXN1LCBHb29nbGUgSGVzYWLE
+sW7EsXpkYWtpIMO2bmVtbGkgIA0KZGXEn2nFn2lrbGlrbGVyaSBiaWxkaXJtZWsgacOnaW4gZ8O2
+bmRlcmlsbWnFn3Rpci4gQnUgbWVzYWosIGVyacWfaW0ga29udHJvbGxlcmkgIA0KdmUgZ8O8dmVu
+bGlrbGUgaWxnaWxpIGVuIGl5aSB1eWd1bGFtYWxhciBoYWtrxLFuZGEgYmlsZ2kgdmVybWVrIGnD
+p2luIHTDvG0gIA0Ka3VsbGFuxLFjxLEgecO2bmV0aWNpbGVyaW5lIGfDtm5kZXJpbGRpLg0KDQo=
+--0000000000007931c005f88021d7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div>
+  <html xmlns:v=3Durn:schemas-microsoft-com:vml dir=3Dltr lang=3Dtr style=
+=3D"margin:0; padding:0">
+    <meta http-equiv=3DContent-Type content=3D"text/html; charset=3Dutf-8">
+    <meta name=3Dviewport content=3Dwidth=3Ddevice-width>
+    <style>@media only screen{html{min-height:100%;background:#fafafa}}@med=
+ia only screen and (max-width:640px){.small-float-center{margin:0 auto!impo=
+rtant;float:none!important;text-align:center!important}}@media only screen =
+and (max-width:640px){table.body img{width:auto;height:auto}table.body cent=
+er{min-width:0!important}table.body .container{width:344px!important}table.=
+body .columns{height:auto!important;-moz-box-sizing:border-box;-webkit-box-=
+sizing:border-box;box-sizing:border-box;padding-left:40px!important;padding=
+-right:40px!important}table.body .columns .columns{padding-left:0!important=
+;padding-right:0!important}table.body .collapse .columns{padding-left:0!imp=
+ortant;padding-right:0!important}th.small-1{display:inline-block!important;=
+width:8.33333%!important}th.small-3{display:inline-block!important;width:25=
+%!important}th.small-4{display:inline-block!important;width:33.33333%!impor=
+tant}th.small-6{display:inline-block!important;width:50%!important}th.small=
+-8{display:inline-block!important;width:66.66667%!important}th.small-9{disp=
+lay:inline-block!important;width:75%!important}th.small-12{display:inline-b=
+lock!important;width:100%!important}.columns th.small-12{display:block!impo=
+rtant;width:100%!important}table.menu{width:100%!important}table.menu td,ta=
+ble.menu th{width:auto!important;display:inline-block!important}table.menu.=
+vertical td,table.menu.vertical th{display:block!important}table.menu[align=
+=3Dcenter]{width:auto!important}}</style>
+    <span class=3Dpreheader style=3Dcolor:#fafafa;display:none!important;fo=
+nt-size:1px;line-height:1px;max-height:0;max-width:0;mso-hide:all!important=
+;opacity:0;overflow:hidden;visibility:hidden></span>
+    <table class=3Dbody style=3DMargin:0;background:#F8F9FA!important;borde=
+r-collapse:collapse;border-spacing:0;color:#3C4043;font-family:Roboto,Helve=
+tica,Arial,sans-serif;font-size:14px;font-weight:400;height:100%;line-heigh=
+t:inherit;margin:0;padding:0;vertical-align:top;width:100%;text-align:left>
+      <tr style=3Dpadding:0;vertical-align:top>
+        <td class=3Dcenter align=3Dcenter valign=3Dtop style=3D-moz-hyphens=
+:none;-webkit-hyphens:none;Margin:0;border-collapse:collapse!important;colo=
+r:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14px;font=
+-weight:400;hyphens:none;line-height:inherit;margin:0;padding:0;vertical-al=
+ign:top;word-wrap:keep-all>
+          <center data-parsed=3D"" style=3Dmin-width:600px;width:100%>
+           =20
+            <table align=3Dcenter class=3D"container float-center" style=3D=
+"Margin:0 auto;background:#fafafa;border-collapse:collapse;border-spacing:0=
+;float:none;margin:0 auto;padding:0;text-align:left;vertical-align:top;widt=
+h:600px"><tbody><tr style=3Dpadding:0;vertical-align:top><td style=3D-moz-h=
+yphens:none;-webkit-hyphens:none;Margin:0;border-collapse:collapse!importan=
+t;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14p=
+x;font-weight:400;hyphens:none;line-height:inherit;margin:0;padding:0;verti=
+cal-align:top;word-wrap:keep-all>
+              <table class=3D"row header" style=3Dbackground:#F8F9FA;border=
+-collapse:collapse;border-spacing:0;display:table;font-size:12px;padding:0;=
+position:relative;vertical-align:top;width:100%><tbody><tr style=3Dpadding:=
+0;vertical-align:top>
+                <th class=3D"small-12 large-12 columns first last" style=3D=
+"Margin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;=
+font-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;=
+padding-bottom:24px;padding-left:40px;padding-right:40px;padding-top:12px;w=
+idth:560px"><table style=3Dborder-collapse:collapse;border-spacing:0;margin=
+-bottom:0;padding:0;vertical-align:top;width:100%><tr style=3Dpadding:0;ver=
+tical-align:top><th style=3DMargin:0;color:#3C4043;font-family:Roboto,Helve=
+tica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;ma=
+rgin:0;padding:0;text-align:left>
+           =20
+                  <img src=3Dhttps://storage.googleapis.com/support-kms-pro=
+d/Eft9z9eRxsO0lygmCjmL53ewJDonixbl4EDd alt=3DGoogle height=3D30 style=3D-ms=
+-interpolation-mode:bicubic;clear:both;display:block;margin-top:24px;max-he=
+ight:30px;max-width:100%;outline:0;text-decoration:none;width:auto>
+           =20
+                </th>
+<th class=3Dexpander style=3DMargin:0;color:#3C4043;font-family:Roboto,Helv=
+etica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;m=
+argin:0;padding:0!important;visibility:hidden;width:0></th></tr></table></t=
+h>
+              </tr></tbody></table>
+           =20
+              <table class=3D"row info" style=3Dalign-items:center;backgrou=
+nd:#fff;border-collapse:collapse;border-color:#E8EAED;border-spacing:0;bord=
+er-style:solid;border-width:1px;display:table;padding:0;position:relative;v=
+ertical-align:top;width:100%><tbody><tr style=3Dpadding:0;vertical-align:to=
+p>
+                <th class=3D"small-12 large-12 columns first last" style=3D=
+"Margin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;=
+font-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;=
+padding-bottom:0;padding-left:40px;padding-right:40px;width:560px"><table s=
+tyle=3Dborder-collapse:collapse;border-spacing:0;padding:0;vertical-align:t=
+op;width:100%><tr style=3Dpadding:0;vertical-align:top><th style=3D"Margin:=
+0;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size:14p=
+x;font-weight:400;line-height:inherit;margin:0;padding:0 0 24px;text-align:=
+left">
+<title>Google hesab=C4=B1n=C4=B1z=C4=B1n g=C3=BCvenli=C4=9Fini sa=C4=9Flama=
+ya y=C3=B6nelik ipu=C3=A7lar=C4=B1</title>
+<h2 style=3D"Margin:0;Margin-bottom:8px;color:#3C4043;font-family:Google Sa=
+ns,Helvetica,Arial,sans-serif;font-size:24px;font-weight:700;line-height:30=
+px!important;margin:0;margin-bottom:24px;margin-top:24px;padding:0;word-wra=
+p:normal">Bu en iyi uygulamalarla Google Y=C3=B6netici Konsolu hesab=C4=B1n=
+=C4=B1z=C4=B1n g=C3=BCvenli=C4=9Fini sa=C4=9Flay=C4=B1n</h2>
+
+<p style=3D"color:#3C4043; font-family:Roboto,Helvetica,Arial,sans-serif; f=
+ont-size:14px; font-weight:400; line-height:24px; margin:0; margin-bottom:1=
+6px; padding:0;">De=C4=9Ferli M=C3=BC=C5=9Fterimiz,</p>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Google Y=C3=B6netici Konsolu hesab=C4=B1=
+n=C4=B1z=C4=B1n g=C3=BCvenli=C4=9Fini sa=C4=9Flamak i=C3=A7in =C3=B6nerdi=
+=C4=9Fimiz birka=C3=A7 eri=C5=9Fim denetimi ve g=C3=BCvenlik =C3=B6zelli=C4=
+=9Fi a=C5=9Fa=C4=9F=C4=B1da verilmi=C5=9Ftir:</p>
+<p>
+   =20
+</p>
+  </li>
+<li style=3D"color:#3C4043; background:#f3f3f3; font-family:Roboto,Helvetic=
+a,Arial,sans-serif; font-size:14px; line-height:24px;"><strong>Y=C3=B6netic=
+ilerin ve =C3=B6nemli kullan=C4=B1c=C4=B1lar=C4=B1n, kim olduklar=C4=B1na d=
+air ek kan=C4=B1t sunmas=C4=B1n=C4=B1 zorunlu k=C4=B1l=C4=B1n</strong>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>=C4=B0=C5=9Fletmenizdeki herkesin 2 Ad=
+=C4=B1ml=C4=B1 Do=C4=9Frulama kullanmas=C4=B1 =C3=B6neririz. Bu, =C3=B6zell=
+ikle y=C3=B6neticiler ve finansal kay=C4=B1tlar ile =C3=A7al=C4=B1=C5=9Fan =
+bilgileri gibi hassas verilerle =C3=A7al=C4=B1=C5=9Fan kullan=C4=B1c=C4=B1l=
+ar i=C3=A7in =C3=B6nemlidir. Bir =C5=9Fifre =C3=A7al=C4=B1nd=C4=B1=C4=9F=C4=
+=B1nda 2 Ad=C4=B1ml=C4=B1 Do=C4=9Frulama, =C5=9Fifreyi =C3=A7alan ki=C5=9Fi=
+nin hesab=C4=B1n=C4=B1za eri=C5=9Fmesini engelleyebilir.</p>
+<p>2 Ad=C4=B1ml=C4=B1 Do=C4=9Frulama ile kullan=C4=B1c=C4=B1lar=C4=B1n, bil=
+dikleri (=C5=9Fifreleri) ve sahip olduklar=C4=B1 bir =C5=9Feyi (fiziksel an=
+ahtar veya eri=C5=9Fim kodu gibi) kullanarak kimliklerini do=C4=9Frulamas=
+=C4=B1 gerekir. M=C3=BCmk=C3=BCn olan durumlarda, FIDO uyumlu bir g=C3=BCve=
+nlik anahtar=C4=B1yla y=C3=B6neticiler ve =C3=B6nemli kullan=C4=B1c=C4=B1la=
+r i=C3=A7in 2 Ad=C4=B1ml=C4=B1 Do=C4=9Frulama'y=C4=B1 zorunlu k=C4=B1lman=
+=C4=B1z gerekir. </p>
+
+
+
+<p><a href=3Dhttps://support.google.com/a/answer/175197 rel=3Dnoopener>2 Ad=
+=C4=B1ml=C4=B1 Do=C4=9Frulama ile i=C5=9Fletmenizi koruma</a> | <a href=3Dh=
+ttps://support.google.com/a/answer/9176657?hl=3Dtr&amp;ref_topic=3D2759193 =
+rel=3Dnoopener>2 Ad=C4=B1ml=C4=B1 Do=C4=9Frulama'y=C4=B1 da=C4=9F=C4=B1tma<=
+/a></p>
+</li>
+<li style=3D"color:#3C4043; font-family:Roboto,Helvetica,Arial,sans-serif; =
+font-size:14px; line-height:24px;"><strong>Ek bir s=C3=BCper y=C3=B6netici =
+hesab=C4=B1 olu=C5=9Fturun</strong>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Bir i=C5=9Fletme, her biri farkl=C4=B1 b=
+ir ki=C5=9Fi taraf=C4=B1ndan y=C3=B6netilen birden =C3=A7ok s=C3=BCper y=C3=
+=B6netici hesab=C4=B1na sahip olmal=C4=B1d=C4=B1r. Birincil s=C3=BCper y=C3=
+=B6netici hesab=C4=B1n=C4=B1z kaybolur veya ele ge=C3=A7irilirse, birincil =
+hesap kurtar=C4=B1l=C4=B1rken yedek s=C3=BCper y=C3=B6netici kritik g=C3=B6=
+revleri ger=C3=A7ekle=C5=9Ftirebilir. Farkl=C4=B1 bir kullan=C4=B1c=C4=B1ya=
+ s=C3=BCper y=C3=B6netici rol=C3=BC atayarak ba=C5=9Fka bir s=C3=BCper y=C3=
+=B6netici olu=C5=9Fturabilirsiniz.</p>
+
+<p><a href=3Dhttps://support.google.com/a/answer/172176 rel=3Dnoopener>Kull=
+an=C4=B1c=C4=B1ya y=C3=B6netici rolleri atama</a></p>
+  </li>
+<li style=3D"color:#3C4043; background:#f3f3f3; font-family:Roboto,Helvetic=
+a,Arial,sans-serif; font-size:14px; line-height:24px;"><strong>S=C3=BCper y=
+=C3=B6neticiler hesaplar=C4=B1nda oturumlar=C4=B1n=C4=B1 a=C3=A7=C4=B1k tut=
+mamal=C4=B1d=C4=B1r</strong>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>S=C3=BCper y=C3=B6neticiler, yaln=C4=B1z=
+ca belirli g=C3=B6revleri ger=C3=A7ekle=C5=9Ftirmek i=C3=A7in oturum a=C3=
+=A7mal=C4=B1 ve sonra oturumlar=C4=B1n=C4=B1 kapatmal=C4=B1d=C4=B1r. Belirl=
+i bir y=C3=B6netim g=C3=B6revini ger=C3=A7ekle=C5=9Ftirmedi=C4=9Finiz halde=
+ s=C3=BCper y=C3=B6netici hesab=C4=B1n=C4=B1n oturumunu a=C3=A7=C4=B1k b=C4=
+=B1rak=C4=B1rsan=C4=B1z k=C3=B6t=C3=BC ama=C3=A7l=C4=B1 i=C5=9Flemlere maru=
+z kalma riskini art=C4=B1r=C4=B1yor olabilirsiniz.</p>
+
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>G=C3=BCnl=C3=BCk y=C3=B6netim g=C3=B6rev=
+leri, s=C4=B1n=C4=B1rl=C4=B1 y=C3=B6netici rollerine sahip bir hesap kullan=
+=C4=B1larak yap=C4=B1lmal=C4=B1d=C4=B1r.</p>
+
+  <p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,H=
+elvetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;m=
+argin:0;margin-bottom:16px;padding:0><a href=3Dhttps://support.google.com/a=
+/answer/2405986 rel=3Dnoopener>=C3=96nceden olu=C5=9Fturulmu=C5=9F y=C3=B6n=
+etici rolleri</a> | <a href=3Dhttps://support.google.com/a/answer/9011373 r=
+el=3Dnoopener>Y=C3=B6netici hesaplar=C4=B1 i=C3=A7in g=C3=BCvenlik konusund=
+a en iyi uygulamalar</a></p></li>
+</ul>
+<p style=3DMargin:0;Margin-bottom:16px;color:#3C4043;font-family:Roboto,Hel=
+vetica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:24px;mar=
+gin:0;margin-bottom:16px;padding:0>Google hesab=C4=B1n=C4=B1zda kullanabile=
+ce=C4=9Finiz en iyi g=C3=BCvenlik uygulamalar=C4=B1 hakk=C4=B1nda daha fazl=
+a bilgi edinmek i=C3=A7in <a href=3Dhttps://support.google.com/a/answer/918=
+4226 rel=3Dnoopener>g=C3=BCvenlikle ilgili yap=C4=B1lacaklar listelerimizi<=
+/a> inceleyin.</p>
+
+<p style=3D"color:#3C4043; font-family:Google Sans,Helvetica,Arial,sans-ser=
+if; font-size:14px; font-weight:700; line-height:24px; margin:0; margin-bot=
+tom:0px!important; margin-top:8px; padding:0;">Sayg=C4=B1lar=C4=B1m=C4=B1zl=
+a,</p>
+
+<p style=3D"color:#3C4043; font-family:Google Sans,Helvetica,Arial,sans-ser=
+if; font-size:14px; font-weight:700; line-height:24px; margin:0; margin-bot=
+tom:0px!important; padding:0;">Google Ekibi</p>
+           =20
+           =20
+
+            <table class=3D"row footer" role=3Dpresentation style=3Dbackgro=
+und:#F8F9FA;border-collapse:collapse;border-spacing:0;display:table;margin-=
+top:0;padding:0;position:relative;vertical-align:top;width:100%><tbody><tr =
+style=3Dpadding:0;vertical-align:top>
+              <th class=3D"small-12 large-12 columns first last" style=3D"M=
+argin:0 auto;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;fo=
+nt-size:14px;font-weight:400;line-height:inherit;margin:0 auto;padding:0;pa=
+dding-bottom:0;padding-left:40px;padding-right:40px;width:560px"><table sty=
+le=3Dborder-collapse:collapse;border-spacing:0;padding:0;vertical-align:top=
+;width:100%><tbody><tr style=3Dpadding:0;vertical-align:top><th style=3DMar=
+gin:0;color:#3C4043;font-family:Roboto,Helvetica,Arial,sans-serif;font-size=
+:14px;font-weight:400;line-height:inherit;margin:0;padding:24px;text-align:=
+left>
+
+                <img src=3Dhttps://storage.googleapis.com/support-kms-prod/=
+Eft9z9eRxsO0lygmCjmL53ewJDonixbl4EDd alt=3DGoogle height=3D30 style=3D-ms-i=
+nterpolation-mode:bicubic;clear:both;display:block;margin-bottom:14px;max-w=
+idth:100%;max-height:30px;outline:0;text-decoration:none;width:auto />
+                <p style=3DMargin:0;Margin-bottom:16px;color:#6C737F;font-f=
+amily:Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line=
+-height:16px;margin:0;margin-bottom:14px;padding:0>
+            =C2=A9 2023  Google LLC&#xa0;1600 Amphitheatre Parkway, Mountai=
+n View, CA 94043
+                </p>
+                <p style=3DMargin:0;Margin-bottom:16px;color:#6C737F;font-f=
+amily:Roboto,Helvetica,Arial,sans-serif;font-size:12px;font-weight:400;line=
+-height:16px;margin:0;margin-bottom:14px;padding:0>
+            <em>Bu zorunlu e-posta hizmet duyurusu, Google Hesab=C4=B1n=C4=
+=B1zdaki =C3=B6nemli de=C4=9Fi=C5=9Fiklikleri bildirmek i=C3=A7in g=C3=B6nd=
+erilmi=C5=9Ftir. Bu mesaj, eri=C5=9Fim kontrolleri ve g=C3=BCvenlikle ilgil=
+i en iyi uygulamalar hakk=C4=B1nda bilgi vermek i=C3=A7in t=C3=BCm kullan=
+=C4=B1c=C4=B1 y=C3=B6neticilerine g=C3=B6nderildi.</em>
+            </p>
+            </th>
+<th class=3Dexpander style=3DMargin:0;color:#3C4043;font-family:Roboto,Helv=
+etica,Arial,sans-serif;font-size:14px;font-weight:400;line-height:inherit;m=
+argin:0;padding:0!important;visibility:hidden;width:0></th></tr></tbody></t=
+able></th>
+            </tr></tbody></table>
+           =20
+
+         =20
+       =20
+     =20
+   =20
+   =20
+   <div style=3D"display:none;white-space:nowrap;font:15px courier;line-hei=
+ght:0"> &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa=
+0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#=
+xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; &#xa0; </div>
+
+
+--0000000000007931c005f88021d7--
